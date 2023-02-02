@@ -10,7 +10,7 @@ namespace GPOI_AppGrafi.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger; //prova
+            _logger = logger; //provaa
         }
 
         public IActionResult Index()
