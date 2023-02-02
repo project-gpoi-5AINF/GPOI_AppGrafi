@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using GPOI_AppGrafi.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<GPOI_AppGrafiContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GPOI_AppGrafiContext") ?? throw new InvalidOperationException("Connection string 'GPOI_AppGrafiContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
