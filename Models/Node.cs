@@ -2,8 +2,25 @@
 {
     public class Node
     {
-        public int Id { get; set; } 
-        public string Name { get; set; }
+        public int id { get; set; } 
+        public string name { get; set; }
+        
+        public Node node { get; set; }
+
+        Node() // costruttore di default
+        {
+            this.id = 0;
+            this.name = null;
+            this.node = null;
+        }
+
+        Node(int id, string name, Node node)
+        {
+            this.id = id;
+            this.name = name;
+            this.node = node;
+        }
+            
 
     }
 }
