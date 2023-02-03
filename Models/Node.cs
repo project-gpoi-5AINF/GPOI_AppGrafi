@@ -6,6 +6,7 @@
         public string name { get; set; }
         
         public Node node { get; set; }
+        public List<User> users { get; set; }
 
         Node() // costruttore di default
         {
