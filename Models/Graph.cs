@@ -13,6 +13,11 @@
             nodes.Remove(node);
         }
 
+        public void rimuoviNodo(int index)
+        {
+            nodes.RemoveAt(index);
+        }
+
         public void modificaNodo(Node node1, Node nodeModifica)
         {
             node1 = nodeModifica;
