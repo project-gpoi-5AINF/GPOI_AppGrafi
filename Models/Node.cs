@@ -3,10 +3,10 @@
     public class Node
     {
         public int id { get; set; } 
-        public string name { get; set; }
+        public string? name { get; set; }
         
-        public Node node { get; set; }
-        public List<User> users { get; set; }
+        public Node? node { get; set; }
+        public List<User>? users { get; set; }
 
         Node() // costruttore di default
         {
