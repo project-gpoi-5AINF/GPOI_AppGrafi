@@ -2,6 +2,10 @@
 {
     public class Node
     {
+        private int v1;
+        private string v2;
+        private object value;
+
         public int id { get; set; } 
         public string? name { get; set; }
         
@@ -22,7 +26,11 @@
             this.node = node;
         }
 
-            
-
+        public Node(int v1, string v2, object value)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.value = value;
+        }
     }
 }

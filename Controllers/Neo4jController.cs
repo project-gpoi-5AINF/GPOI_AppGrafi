@@ -17,6 +17,7 @@ namespace GPOI_AppGrafi.Controllers
         public Neo4jController()
         {
             _driver = GraphDatabase.Driver("neo4j+s://a7478851.databases.neo4j.io", AuthTokens.Basic("neo4j", "LwPccV4DygL2L8XFtxUsjn_0RCA88wGMh2857QfWHHc"));//user and password
+            Console.WriteLine("tutto apposto");
         }
 
         public async Task CreateNode(Node node)
@@ -24,7 +25,7 @@ namespace GPOI_AppGrafi.Controllers
             string name = node.name;
             int id = node.id;
 
-            var query = @"CREATE ($name:Node {id = $id}, {name = $name})";
+            var query = @"CREATE ($name:Node {id = $id, name = $name}) RETURN $name";
 
             await using var session = _driver.AsyncSession(configBuilder => configBuilder.WithDatabase("ProgettoGpoi"));
             try
@@ -50,8 +51,8 @@ namespace GPOI_AppGrafi.Controllers
             int id2 = node2.id;
 
             var query = @"
-            MERGE ($name1:Node {id : $id1},{name : $name1})
-            MERGE ($name2:Node {id : $id2},{name : $name2})
+            MERGE ($name1:Node {id : $id1, name : $name1})
+            MERGE ($name2:Node {id : $id2, name : $name2})
             MERGE ($name1)-[:KNOWS]->($name2)
             RETURN $name1, $name2";
 
@@ -77,7 +78,7 @@ namespace GPOI_AppGrafi.Controllers
             int id = node.id;
 
             var query = @"
-            MATCH ($name:Node {id : $id}, {name : $name})
+            MATCH ($name:Node {id : $id, name : $name})
             DELETE $name";
 
             await using var session = _driver.AsyncSession(configBuilder => configBuilder.WithDatabase("ProgettoGpoi"));
