@@ -34,7 +34,7 @@ namespace GPOI_AppGrafi.Controllers
             }
 
             var node = await _context.Node
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (node == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace GPOI_AppGrafi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Node node)
         {
-            if (id != node.Id)
+            if (id != node.id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace GPOI_AppGrafi.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NodeExists(node.Id))
+                    if (!NodeExists(node.id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace GPOI_AppGrafi.Controllers
             }
 
             var node = await _context.Node
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (node == null)
             {
                 return NotFound();
@@ -155,7 +155,7 @@ namespace GPOI_AppGrafi.Controllers
 
         private bool NodeExists(int id)
         {
-          return _context.Node.Any(e => e.Id == id);
+          return _context.Node.Any(e => e.id == id);
         }
     }
 }
