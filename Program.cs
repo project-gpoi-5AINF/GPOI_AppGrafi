@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using GPOI_AppGrafi.Data;
+﻿using GPOI_AppGrafi.Data;
 using GPOI_AppGrafi.Models;
 using System;
 using GPOI_AppGrafi.Controllers;
