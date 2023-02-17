@@ -30,8 +30,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-using var dbController = new Neo4jController();
-Node node1 = new(1, "Pippo", null);
-Task task = dbController.CreateNode(node1);
 
 app.Run();
