@@ -12,6 +12,10 @@ builder.Services.AddDbContext<GPOI_AppGrafiContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var dbController = new Neo4jController();
+Node node1 = new Node(10, "ciccio", null);
+Node node2 = new Node(20, "pupa", node1);
+await dbController.DeleteNode(node1);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

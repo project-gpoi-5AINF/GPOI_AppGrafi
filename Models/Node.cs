@@ -2,12 +2,12 @@
 {
     public class Node
     {
-        private int v1;
-        private string v2;
-        private object value;
+        private int? v1 { get; set; }
+        private string? v2 { get; set; }
+        private object? value { get; set; }
 
         public int id { get; set; } 
-        public string? name { get; set; }
+        public string name { get; set; }
         
         public Node? node { get; set; }
         public List<User>? users { get; set; }
@@ -28,9 +28,9 @@
 
         public Node(int v1, string v2, object value)
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.value = value;
+            this.id = v1;
+            this.name = v2;
+            this.node = (Node) value;
         }
     }
 }
