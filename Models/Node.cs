@@ -2,36 +2,31 @@
 {
     public class Node
     {
-        private int id;
-        private string desc;
-        private string nome;
-
-
-        public int id { get; set; } 
-        public string? name { get; set; }
-        
-        public Node? node { get; set; }
-        public List<User>? users { get; set; }
+        public int Id { get; set; } 
+        public string? Desc { get; set; }
+        public string? Name { get; set; }
+        public List<Node>? Nodes { get; set; }
+        public List<User>? Users { get; set; }
+        public Tipologia? Tipo { get; set; }
 
         Node() // costruttore di default
         {
-            this.id = 0;
-            this.name = null;
-            this.node = null;
+            this.Id = 0;
+            this.Desc = null;
+            this.Name = null;
+            this.Nodes = null;
+            this.Users = null;
+            this.Tipo = null;
         }
 
-        Node(int id, string name, Node node)
+        Node(int id, string desc, string name, List<Node> nodes, List<User> users, Tipologia tipo)
         {
-            this.id = id;
-            this.name = name;
-            this.node = node;
-        }
-
-        public Node(int v1, string v2, object value)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.value = value;
+            this.Id = id;
+            this.Desc = desc;
+            this.Name = name;
+            this.Nodes = nodes;
+            this.Users = users;
+            this.Tipo = tipo;
         }
     }
 }

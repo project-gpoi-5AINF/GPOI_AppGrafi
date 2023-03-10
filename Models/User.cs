@@ -4,7 +4,7 @@
     {
         public string email { get; set; }
         public string password { get; set; }
-        public Grade grado { get; set; }
+        public Tipologia grado { get; set; }
 
         User() 
         {
@@ -13,7 +13,7 @@
             this.grado = 0;
         }
 
-        User(string email, string password, Grade grado)
+        User(string email, string password, Tipologia grado)
         {
             this.email = email;
             this.password = password;

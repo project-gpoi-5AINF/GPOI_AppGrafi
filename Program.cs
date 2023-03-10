@@ -2,6 +2,7 @@
 using GPOI_AppGrafi.Models;
 using System;
 using GPOI_AppGrafi.Controllers;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<GPOI_AppGrafiContext>(options =>
