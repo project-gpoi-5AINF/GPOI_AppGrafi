@@ -30,8 +30,8 @@ namespace GPOI_AppGrafi.Controllers
             {
                 var writeResults = await session.ExecuteWriteAsync(async tx =>
                 {
-                    string id = node.id.ToString();
-                    string name = node.name;
+                    string id = node.Id.ToString();
+                    string name = node.Name;
                     var result = await tx.RunAsync(query, new { id, name });
                     return await result.ToListAsync();
                 });
@@ -42,23 +42,29 @@ namespace GPOI_AppGrafi.Controllers
                 throw;
             }
         }
+
+        public async Task UpdateNode(int id, string? name)
+        {
+
+        }
+
         public async Task CreateRelationship(Node node1, Node node2)
         {
 
-            var query = @"MERGE ("+node1.name+ ":Node {id:$id1, name:$name1})" +
-            "MERGE ("+node2.name+":Node {id:$id2, name:$name2})" +
-            "MERGE ("+node1.name+ ")-[r:KNOWS]->("+node1.name+")" +
-            "RETURN "+node1.name+ ", "+node1.name+"";
+            var query = @"MERGE ("+node1.Name + ":Node {id:$id1, name:$name1})" +
+            "MERGE ("+node2.Name +":Node {id:$id2, name:$name2})" +
+            "MERGE ("+node1.Name + ")-[r:KNOWS]->("+node1.Name +")" +
+            "RETURN "+node1.Name + ", "+node1.Name +"";
 
             await using var session = _driver.AsyncSession(configBuilder => configBuilder.WithDatabase("neo4j"));
             try
             {
                 var writeResults = await session.ExecuteWriteAsync(async tx =>
                 {
-                    string id1 = node1.id.ToString();
-                    string id2 = node2.id.ToString();
-                    string name1 = node1.name;
-                    string name2 = node2.name;
+                    string id1 = node1.Id.ToString();
+                    string id2 = node2.Id.ToString();
+                    string name1 = node1.Name;
+                    string name2 = node2.Name;
 
                     var result = await tx.RunAsync(query, new { id1, id2, name1, name2 });
                     return await result.ToListAsync();
@@ -75,15 +81,15 @@ namespace GPOI_AppGrafi.Controllers
         {
             
 
-            var query = @"MATCH ("+node.name+":Node {id : $id, name : $name}) DELETE "+ node.name+"";
+            var query = @"MATCH ("+node.Name +":Node {id : $id, name : $name}) DELETE "+ node.Name +"";
 
             await using var session = _driver.AsyncSession(configBuilder => configBuilder.WithDatabase("neo4j"));
             try
             {
                 var writeResults = await session.ExecuteWriteAsync(async tx =>
                 {
-                    string name = node.name;
-                    int id = node.id;
+                    string name = node.Name;
+                    int id = node.Id;
                     var result = await tx.RunAsync(query, new { id, name });
                     return await result.ToListAsync();
                 });

@@ -88,7 +88,7 @@ namespace GPOI_AppGrafi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Node node)
         {
-            if (id != node.id)
+            if (id != node.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace GPOI_AppGrafi.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NodeExists(node.id))
+                    if (!NodeExists(node.Id))
                     {
                         return NotFound();
                     }
