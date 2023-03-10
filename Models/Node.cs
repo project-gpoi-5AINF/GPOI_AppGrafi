@@ -2,9 +2,10 @@
 {
     public class Node
     {
-        private int v1;
-        private string v2;
-        private object value;
+        private int id;
+        private string desc;
+        private string nome;
+
 
         public int id { get; set; } 
         public string? name { get; set; }
