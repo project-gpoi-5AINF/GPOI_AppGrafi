@@ -53,10 +53,10 @@ namespace GPOI_AppGrafi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValIdateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Node node)
         {
-            if (ModelState.IsValId)
+            if (ModelState.IsValid)
             {
                 _context.Add(node);
                 await _context.SaveChangesAsync();
@@ -85,7 +85,7 @@ namespace GPOI_AppGrafi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValIdateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int Id, [Bind("Id,Name")] Node node)
         {
             if (Id != node.Id)
@@ -93,7 +93,7 @@ namespace GPOI_AppGrafi.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValId)
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -136,7 +136,7 @@ namespace GPOI_AppGrafi.Controllers
 
         // POST: Nodes/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValIdateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int Id)
         {
             if (_context.Node == null)
