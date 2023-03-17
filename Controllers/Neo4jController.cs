@@ -43,9 +43,11 @@ namespace GPOI_AppGrafi.Controllers
             }
         }
 
-        public async Task UpdateNode(int id, string? name)
+        public async Task UpdateNode(Node node)
         {
-
+            var query = @"MATCH ("+node.Name+ ")" + 
+                "SET node.Name = "                 
+                + "";
         }
 
         public async Task CreateRelationship(Node node1, Node node2)
