@@ -26,15 +26,15 @@ namespace GPOI_AppGrafi.Controllers
         }
 
         // GET: Nodes/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? Id)
         {
-            if (id == null || _context.Node == null)
+            if (Id == null || _context.Node == null)
             {
                 return NotFound();
             }
 
             var node = await _context.Node
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == Id);
             if (node == null)
             {
                 return NotFound();
@@ -53,10 +53,10 @@ namespace GPOI_AppGrafi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValIdateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Node node)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValId)
             {
                 _context.Add(node);
                 await _context.SaveChangesAsync();
@@ -66,14 +66,14 @@ namespace GPOI_AppGrafi.Controllers
         }
 
         // GET: Nodes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            if (id == null || _context.Node == null)
+            if (Id == null || _context.Node == null)
             {
                 return NotFound();
             }
 
-            var node = await _context.Node.FindAsync(id);
+            var node = await _context.Node.FindAsync(Id);
             if (node == null)
             {
                 return NotFound();
@@ -85,15 +85,15 @@ namespace GPOI_AppGrafi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Node node)
+        [ValIdateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int Id, [Bind("Id,Name")] Node node)
         {
-            if (id != node.Id)
+            if (Id != node.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValId)
             {
                 try
                 {
@@ -117,15 +117,15 @@ namespace GPOI_AppGrafi.Controllers
         }
 
         // GET: Nodes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? Id)
         {
-            if (id == null || _context.Node == null)
+            if (Id == null || _context.Node == null)
             {
                 return NotFound();
             }
 
             var node = await _context.Node
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == Id);
             if (node == null)
             {
                 return NotFound();
@@ -136,14 +136,14 @@ namespace GPOI_AppGrafi.Controllers
 
         // POST: Nodes/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [ValIdateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int Id)
         {
             if (_context.Node == null)
             {
                 return Problem("Entity set 'GPOI_AppGrafiContext.Node'  is null.");
             }
-            var node = await _context.Node.FindAsync(id);
+            var node = await _context.Node.FindAsync(Id);
             if (node != null)
             {
                 _context.Node.Remove(node);
@@ -153,9 +153,9 @@ namespace GPOI_AppGrafi.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NodeExists(int id)
+        private bool NodeExists(int Id)
         {
-          return _context.Node.Any(e => e.id == id);
+          return _context.Node.Any(e => e.Id == Id);
         }
     }
 }
