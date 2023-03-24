@@ -15,7 +15,7 @@ namespace GPOI_AppGrafi.Controllers
     [ApiController]
     public class Neo4jController : IDisposable
     {
-        private readonly IDriver _driver;
+        private readonly Neo4j.Driver.IDriver _driver;
         public Neo4jController()
         {
             _driver = GraphDatabase.Driver("neo4j+s://a7478851.databases.neo4j.io", AuthTokens.Basic("neo4j", "LwPccV4DygL2L8XFtxUsjn_0RCA88wGMh2857QfWHHc"));//user and password
