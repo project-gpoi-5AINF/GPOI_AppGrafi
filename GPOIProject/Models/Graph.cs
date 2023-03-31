@@ -1,4 +1,4 @@
-﻿namespace GPOIProject.Models
+﻿namespace GPOI_AppGrafi.Models
 {
     public class Graph
     {
