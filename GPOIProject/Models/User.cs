@@ -1,23 +1,25 @@
-﻿namespace GPOIProject.Models
+﻿namespace GPOI_AppGrafi.Models
 {
     public class User
     {
-        public string email { get; set; }
-        public string password { get; set; }
-        public Tipologia grado { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
-        User() 
+        //La proprietà Nodo sarà una foreign key su MySQL
+        //, faremo sì che un utente sarà collegato ad un nodo
+        public Node? Nodo { get; set; }
+        User()
         {
-            this.email = null;
-            this.password = null;
-            this.grado = 0;
+            this.Email = null;
+            this.Password = null;
+            this.Nodo = null;
         }
 
-        User(string email, string password, Tipologia grado)
+        User(string email, string password, Node? node)
         {
-            this.email = email;
-            this.password = password;
-            this.grado = grado;
+            this.Email = email;
+            this.Password = password;
+            this.Nodo = node;
         }
 
 
