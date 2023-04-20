@@ -1,4 +1,4 @@
-﻿//main
+//main
 using GPOI_AppGrafi.Controllers;
 using GPOI_AppGrafi.Data;
 using Microsoft.AspNetCore.Identity;

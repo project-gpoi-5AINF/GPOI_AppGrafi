@@ -1,26 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
-
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+﻿@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 * {
     box-sizing: border-box;
 }
 
 body {
+    font-family: Poppins;
+    font-weight: bolder;
+    background: #eee;
 }
 
 .submit {
@@ -28,7 +15,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #eee;
 }
 
 .submit-item {
@@ -59,7 +45,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #eee;
 }
 
 .login-item {
@@ -79,7 +64,7 @@ h1 {
 
 
 .button {
-    font-weight: 500;
+    font-weight: lighter;
     text-align: center;
     font-size: 16px;
     width: 100%;
@@ -113,15 +98,12 @@ h1 {
 }
 
 .form-control {
-    border-radius: 8px;
 }
-
 
 
 .form-group {
     margin-bottom: 20px;
 }
-
 .form-item {
     background-color: white;
     border-radius: 15px;
@@ -133,6 +115,9 @@ h1 {
     box-shadow: 0 5px 5px rgba(0,0,0, .1);
 }
 
-.input{
-    border-radius:8px;
+.form.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
