@@ -39,7 +39,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     // User impostazioni, caratteri che può usare e non è necessario che un user abbia un 
     //email unica
     options.User.AllowedUserNameCharacters =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+!";
     options.User.RequireUniqueEmail = false;
 });
 
