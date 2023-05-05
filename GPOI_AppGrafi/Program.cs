@@ -1,6 +1,7 @@
 //main
 using GPOI_AppGrafi.Controllers;
 using GPOI_AppGrafi.Data;
+using GPOI_AppGrafi.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,6 +47,17 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 //connesione al db di neo4j
 var dbController = new Neo4jController();
+
+//test per cancellare il nodo 
+/*
+Node mario = new Node(1, "operaio", "mario");
+await dbController.DeleteNode(mario);
+/*
+/*
+Node luigi = new Node(2, "operaio", "luigi");
+await dbController.DeleteNode(luigi);
+*/
+
 
 var app = builder.Build();
 

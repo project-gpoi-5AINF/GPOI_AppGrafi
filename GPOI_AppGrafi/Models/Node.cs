@@ -7,14 +7,14 @@
         public string? Desc { get; set; }
         public string? Name { get; set; }
 
-        Node() // costruttore di default
+        public Node() // costruttore di default
         {
             this.Id = 0;
             this.Desc = null;
             this.Name = null;
         }
 
-        Node(int id, string desc, string name)
+        public Node(int id, string desc, string name)
         {
             this.Id = id;
             this.Desc = desc;
