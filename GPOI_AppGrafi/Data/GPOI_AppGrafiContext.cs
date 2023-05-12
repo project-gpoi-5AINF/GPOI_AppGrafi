@@ -17,5 +17,7 @@ namespace GPOI_AppGrafi.Data
         public DbSet<GPOI_AppGrafi.Models.Edge> Edge { get; set; } = default!;
 
         public DbSet<GPOI_AppGrafi.Models.NodeSQL>? NodeSQL { get; set; }
+
+        public DbSet<GPOI_AppGrafi.Models.Work>? Work { get; set; }
     }
 }

@@ -2,24 +2,21 @@
 {
     public class User
     {
+        public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 
-        //La proprietà Nodo sarà una foreign key su MySQL
-        //, faremo sì che un utente sarà collegato ad un nodo
-        public NodeSQL? Nodo { get; set; }
         User()
         {
             this.Email = null;
             this.Password = null;
-            this.Nodo = null;
         }
 
-        User(string email, string password, NodeSQL? node)
+        User(int id, string email, string password)
         {
+            this.Id = id;
             this.Email = email;
             this.Password = password;
-            this.Nodo = node;
         }
 
 

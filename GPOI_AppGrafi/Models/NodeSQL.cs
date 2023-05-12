@@ -12,5 +12,12 @@
         public Tipologia? Tipo { get; set; }
 
         public NodeSQL() { }
+
+        public NodeSQL(int id, string name, string descr, Tipologia tipo) {
+            this.Id = id;
+            this.Name = name;
+            this.Descr = descr;
+            this.Tipo = tipo;
+        }
     }
 }

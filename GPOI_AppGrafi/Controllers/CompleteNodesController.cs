@@ -20,19 +20,30 @@ namespace GPOI_AppGrafi.Controllers
             _context = context;
         }
 
-        /*
-        public IActionResult ModificaNodo(int id, string name, string descr, int parentId)
+        
+        public void ModificaNodo(int id, string name, string descr, Node parent, string edgeDescr,
+            Tipologia tipo, List<User> users)
         {
-            var updateNode = _context.NodeSQL.FromSql("UPDATE dbo.Node SET Name = {name} AND Descr = {descr} WHERE " +
-                "id = {id}");
 
-            var updateEdge = "UPDATE dbo.Edges SET nodoTermine = {parentId} WHERE " +
-                "id = {id}";
+            NodeSQLsController SQL = new NodeSQLsController(_context);
+            NodeSQL nodeSQL = new NodeSQL(id, name, descr, tipo);
+            SQL.Edit(id, nodeSQL);
 
             Neo4jController neo4j = new Neo4jController();
             Node node = new Node(id, name, descr);
-            neo4j.Edit(id, node);
+            neo4j.UpdateNode(node);
+
+            Edge edge = new Edge(id, parent, node, edgeDescr);
+            EdgesController edgesController = new EdgesController(_context);
+            edgesController.Edit(id, edge);
+
+            foreach(User user in users)
+            {
+                Work work = new Work(id, user, nodeSQL);
+                WorkController workController = new WorkController(_context);
+                workController.Create(work);
+            }
         }
-        */
+        
     }
 }
